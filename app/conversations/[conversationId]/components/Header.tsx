@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         <FaEllipsis
           size={32}
           className="cursor-pointer text-indigo-600 transition hover:text-indigo-600"
-          onClick={() => {}}
+          onClick={() => setDrawerOpen(true)}
         />
       </div>
     </>
