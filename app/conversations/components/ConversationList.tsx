@@ -1,6 +1,6 @@
 'use client';
 
-import useConversations from '@/app/hooks/useConversation';
+import useConversation from '@/app/hooks/useConversation';
 import { FullConversationType } from '@/app/types';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
@@ -15,12 +15,12 @@ interface ConversationListProps {
 const ConversationList: React.FC<ConversationListProps> = ({ initialItems }) => {
   const [items, setItems] = useState(initialItems);
   const router = useRouter();
-  const { conversationId, isOpen } = useConversations();
+  const { conversationId, isOpen } = useConversation();
   return (
     <aside
       className={clsx(
         'fixed inset-y-0 left-0 block w-full overflow-y-auto border-r border-slate-200 pb-20 lg:left-20 lg:block lg:w-80 lg:pb-0',
-        isOpen ? 'left-0 block w-full' : 'hidden'
+        isOpen ? 'hidden' : 'left-0 block w-full'
       )}
     >
       <div className="px-5">

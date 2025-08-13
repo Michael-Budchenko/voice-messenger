@@ -2,11 +2,11 @@ import { signOut } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 import { GoComment, GoPeople, GoSignIn } from 'react-icons/go';
-import useConversations from './useConversation';
+import useConversation from './useConversation';
 
 const useRoutes = () => {
   const pathName = usePathname();
-  const conversationId = useConversations();
+  const conversationId = useConversation();
 
   const routes = useMemo(
     () => [
