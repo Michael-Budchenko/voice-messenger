@@ -28,8 +28,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  // Розширюємо стандартні правила Next.js
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
+
+  // Ігноруємо повністю всі згенеровані Prisma файли
+  {
+    ignores: ['app/generated/prisma/**/*'],
+  },
 
   // Глобальні правила для всіх TS/TSX файлів
   {
@@ -50,31 +54,6 @@ const eslintConfig = [
       '@typescript-eslint/no-this-alias': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
-    },
-  },
-
-  // Повне вимкнення для всіх Prisma згенерованих файлів
-  {
-    files: ['app/generated/prisma/*.{js,ts,d.ts}'],
-    rules: {
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/no-empty-interface': 'off',
-      '@typescript-eslint/no-unnecessary-type-assertion': 'off',
-      '@typescript-eslint/no-this-alias': 'off',
-      '@typescript-eslint/no-unused-expressions': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
-      '@typescript-eslint/consistent-type-imports': 'off',
-      '@typescript-eslint/no-misused-promises': 'off',
-      '@typescript-eslint/no-unnecessary-type-constraint': 'off',
-      '@typescript-eslint/no-wrapper-object-types': 'off',
-      '@typescript-eslint/no-unsafe-function-type': 'off',
     },
   },
 ];
