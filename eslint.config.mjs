@@ -28,6 +28,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Розширюємо стандартні правила Next.js
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
 
   // Глобальні правила для всіх TS/TSX файлів
@@ -71,6 +72,9 @@ const eslintConfig = [
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/consistent-type-imports': 'off',
       '@typescript-eslint/no-misused-promises': 'off',
+      '@typescript-eslint/no-unnecessary-type-constraint': 'off',
+      '@typescript-eslint/no-wrapper-object-types': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
     },
   },
 ];
