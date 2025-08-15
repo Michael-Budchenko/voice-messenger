@@ -1,6 +1,7 @@
 'use client';
 
 import Avatar from '@/app/components/Avatar';
+import LoadingModal from '@/app/components/LoadingModal';
 import { User } from '@/app/generated/prisma';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -25,19 +26,23 @@ const UserBox: React.FC<UserBoxProps> = ({ data }) => {
       .finally(() => setIsLoading(false));
   }, [data, router]);
   return (
-    <div
-      onClick={hanleClick}
-      className="relative flex w-full cursor-pointer items-center space-x-3 rounded-lg bg-white p-3 transition hover:bg-slate-100"
-    >
-      <Avatar user={data} />
-      <div className="min-w-0 flex-1">
-        <div className="focus:outline-none">
-          <div className="mb-1 flex items-center justify-between">
-            <p className="text-sm font-medium text-slate-900">{data.name}</p>
+    <>
+      {isLoading && <LoadingModal />}
+
+      <div
+        onClick={hanleClick}
+        className="relative flex w-full cursor-pointer items-center space-x-3 rounded-lg bg-white p-3 transition hover:bg-slate-100"
+      >
+        <Avatar user={data} />
+        <div className="min-w-0 flex-1">
+          <div className="focus:outline-none">
+            <div className="mb-1 flex items-center justify-between">
+              <p className="text-sm font-medium text-slate-900">{data.name}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
