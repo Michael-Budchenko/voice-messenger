@@ -54,7 +54,7 @@ const eslintConfig = [
 
   // Повне вимкнення для всіх Prisma згенерованих файлів
   {
-    files: ['app/generated/prisma/**'],
+    files: ['app/generated/prisma/*.{js,ts,d.ts}'],
     rules: {
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
